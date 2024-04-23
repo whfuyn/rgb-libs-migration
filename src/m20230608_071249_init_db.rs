@@ -20,6 +20,7 @@ impl MigrationTrait for Migration {
                     )
                     .col(ColumnDef::new(Txo::Txid).string().not_null())
                     .col(ColumnDef::new(Txo::Vout).big_unsigned().not_null())
+                    .col(ColumnDef::new(Txo::ScriptPubkey).string().not_null())
                     .col(ColumnDef::new(Txo::BtcAmount).string().not_null())
                     .col(ColumnDef::new(Txo::Spent).boolean().not_null())
                     .to_owned(),
@@ -544,6 +545,7 @@ pub enum Txo {
     Idx,
     Txid,
     Vout,
+    ScriptPubkey,
     BtcAmount,
     Spent,
 }
